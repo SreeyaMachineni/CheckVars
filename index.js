@@ -12,6 +12,15 @@ const srcFile = 'messageList.html';
 
 var writeStream = fs.createWriteStream("file.xls");
 
+const writeToTheFile = (content) => {
+  writeStream.write(content, function (err) {
+    if(err) console.log(err)
+    else return
+  });
+};
+
+writeToTheFile('RPG VARIABLE' + SPACE + 'VALUE' + NEXT_LINE);
+
 fs.readFile(srcFile, "utf8", function (err, contents) {
   initProcess(contents);
 });
@@ -64,9 +73,4 @@ const processIf = (content) => {
   );
 };
 
-const writeToTheFile = (content) => {
-  writeStream.write(content, function (err) {
-    if(err) console.log(err)
-    else return
-  });
-};
+
